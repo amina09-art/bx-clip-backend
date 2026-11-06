@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Clipping Tool - BX</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #121212; color: #fff; padding: 20px; text-align: center; }
+        .container { max-width: 400px; margin: 0 auto; background: #1e1e1e; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; font-size: 16px; box-sizing: border-box; }
+        input { background: #2d2d2d; color: #fff; }
+        button { background: #00adb5; color: #fff; cursor: pointer; font-weight: bold; }
+        button:hover { background: #007e85; }
+        #info { margin-top: 15px; font-size: 14px; color: #ff5722; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>YouTube Video Clipper</h2>
+    <input type="text" id="videoUrl" placeholder="Enter YouTube video URL here...">
+    <button onclick="openClippingTool()">Go to Fast Clipping Tool</button>
+    <div id="info">This lightweight page runs directly from your phone as your personal web app without complex server issues.</div>
+</div>
+
+<script>
+    function openClippingTool() {
+        const url = document.getElementById('videoUrl').value;
+        if (!url) {
+            alert('Please enter the video URL first');
+            return;
+        }
+        
+        let videoId = '';
+        if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1].split('?')[0];
+        } else if (url.includes('watch?v=')) {
+            videoId = url.split('watch?v=')[1].split('&')[0];
+        }
+        
+        if (videoId) {
+            window.open(`https://www.ssyoutube.com/watch?v=${videoId}`, '_blank');
+        } else {
+            alert('Invalid YouTube URL');
+        }
+    }
+</script>
+
+</body>
+                                                                   </html>
